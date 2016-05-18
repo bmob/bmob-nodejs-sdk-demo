@@ -3,7 +3,6 @@ var BC = require('bmob');
 /**
 * initialize SDK
 */
-// BC.initialize('85b56934cce1129e59a795da547c68e6', '42257d72ebd4b8b518084fabda56ae6e', 'e09fb5cbb5b825c78989504604c0dcff');
 
 BC.Function.define("find",
 	/**
@@ -27,6 +26,31 @@ BC.Function.define("findone",
 		var test = query.findOne({
 				"table":"GameScore",
 				"objectId": request.body.objectId
+			},function(err,data){
+				response.send(data);
+		});
+});
+
+//测试get请求
+BC.Function.define("findget",
+
+	function onRequest(request,response,modules){
+		var query = modules.oData;
+		var test = query.find({
+	      	"table":"GameScore"
+	    },function(err,data){
+	    	response.send(data);
+	    });
+});
+
+//测试get请求
+BC.Function.define("findoneget",
+
+	function onRequest(request,response,modules){
+		var query = modules.oData;
+		var test = query.findOne({
+				"table":"GameScore",
+				"objectId": request.query.objectId
 			},function(err,data){
 				response.send(data);
 		});

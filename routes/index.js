@@ -17,10 +17,27 @@ router.post('/', function(request, response) {
 
   	/*
 	调用方式:
-	curl -X POST -d '_e=test&objectId=66911e175a' http://127.0.0.1:3000
+	curl -X POST -d '_e=test&objectId=66911e175a' http://127.0.0.1:80
   	*/
 	var funcName = BC.Function.func(request.body._e);
-	// console.log("running function: "+request.body._e);
+	if (typeof(funcName) == 'undefined') {
+		response.send('function '+request.body._e+'not exists');
+		return ;
+	}
+	funcName(request,response,modules);
+
+});
+
+router.get('/:functions', function(request, response) {
+
+	var data  = request.params;
+
+  	/*
+	调用方式:
+	curl -X GET http://127.0.0.1:80/findget
+	curl -X GET http://127.0.0.1:80/findoneget?objectId=423ffdcb9b
+  	*/
+	var funcName = BC.Function.func(data.functions);
 	if (typeof(funcName) == 'undefined') {
 		response.send('function '+request.body._e+'not exists');
 		return ;
