@@ -39,7 +39,7 @@ router.get('/:functions', function(request, response) {
   	*/
 	var funcName = BC.Function.func(data.functions);
 	if (typeof(funcName) == 'undefined') {
-		response.send('function '+request.body._e+'not exists');
+		response.send('function '+data.functions+'not exists');
 		return ;
 	}
 	funcName(request,response,modules);
