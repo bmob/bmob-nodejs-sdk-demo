@@ -1,9 +1,5 @@
 var BC = require('bmob');
 
-/**
-* initialize SDK
-*/
-
 BC.Function.define("find",
 	/**
 	* 新版本的远端代码
