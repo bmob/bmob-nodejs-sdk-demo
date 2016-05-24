@@ -65,6 +65,22 @@ BC.Function.define("test",
 	    });
 });
 
+BC.Function.define("testfunction",
+	/**
+	* 旧版本的云端代码
+	*/
+	function onRequest(request,response,modules){
+		var functions = modules.oFunctions;
+
+		    functions.run({
+		       "name": "findone",
+		       "data":{"objectId":"7bf254c044"}
+		    },function(err,data){
+		       response.send(data);
+		    });
+});
+
+
 BC.Function.define("updateuser",
 
 	function onRequest(request,response,modules){

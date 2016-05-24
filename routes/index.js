@@ -17,11 +17,14 @@ router.post('/', function(request, response) {
 
   	/*
 	调用方式:
-	curl -X POST -d '_e=test&objectId=66911e175a' http://127.0.0.1:80
+	curl -X POST -d '_e=findone&objectId=7bf254c044' http://127.0.0.1:80
+	curl -X POST -d '_e=testfunction' http://127.0.0.1:80
   	*/
+  	// console.log("http body %v", request.body);
 	var funcName = BC.Function.func(request.body._e);
 	if (typeof(funcName) == 'undefined') {
-		response.send('function '+request.body._e+'not exists');
+		
+		response.send('post function '+request.body._e+' not exists');
 		return ;
 	}
 	funcName(request,response,modules);
@@ -39,7 +42,7 @@ router.get('/:functions', function(request, response) {
   	*/
 	var funcName = BC.Function.func(data.functions);
 	if (typeof(funcName) == 'undefined') {
-		response.send('function '+data.functions+'not exists');
+		response.send('get function '+data.functions+' not exists');
 		return ;
 	}
 	funcName(request,response,modules);
