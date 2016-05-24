@@ -10,7 +10,7 @@ var func = require('./function');
 var express = require('express');
 var router = express.Router();
 
-BC.initialize('85b56934cce1129e59a795da547c68e6', '42257d72ebd4b8b518084fabda56ae6e', 'e09fb5cbb5b825c78989504604c0dcff');
+BC.initialize('85b56934cce1129e59a795da547c68e6', '42257d72ebd4b8b518084fabda56ae6e');
 var modules = BC.getModules(BC);
 
 router.post('/', function(request, response) {

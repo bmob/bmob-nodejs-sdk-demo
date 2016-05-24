@@ -65,5 +65,14 @@ BC.Function.define("test",
 	    });
 });
 
+BC.Function.define("updateuser",
+
+	function onRequest(request,response,modules){
+	  var db = modules.oData;
+	  db.setHeader({"X-Bmob-Master-Key":"e09fb5cbb5b825c78989504604c0dcff"});
+	  db.updateUserByObjectId({"objectId":"3ae0755405" ,data:{"username":"123"}},function(err,data){
+	    response.send(data);
+	  }); 
+});
 
 module.export = BC.Function;
