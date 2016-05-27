@@ -19,6 +19,7 @@ router.post('/', function(request, response) {
 	调用方式:
 	curl -X POST -d '_e=findone&objectId=7bf254c044' http://127.0.0.1:80
 	curl -X POST -d '_e=testfunction' http://127.0.0.1:80
+	curl -X POST -d '_e=test' http://127.0.0.1:80
   	*/
   	// console.log("http body %v", request.body);
 	var funcName = BC.Function.func(request.body._e);
