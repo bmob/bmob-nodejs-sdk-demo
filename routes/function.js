@@ -61,7 +61,7 @@ BC.Function.define("test",
 		var test = query.find({
 	      	"table":"GameScore"
 	    },function(err,data){
-	    	response.send(data);
+	    	response.send111(data);
 	    });
 });
 
@@ -89,6 +89,12 @@ BC.Function.define("updateuser",
 	  db.updateUserByObjectId({"objectId":"3ae0755405" ,data:{"username":"123"}},function(err,data){
 	    response.send(data);
 	  }); 
+});
+
+BC.Function.define("hello",
+
+	function onRequest(request,response,modules){
+	  response.send("nodejs 环境正在运行");
 });
 
 module.export = BC.Function;
