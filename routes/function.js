@@ -27,6 +27,21 @@ BC.Function.define("findone",
 		});
 });
 
+BC.Function.define("xml",
+	/**
+	* 旧版本的云端代码,原型迁移
+	*/
+	function onRequest(request,response,modules){
+		response.end(request.body.xml.ToUserName);
+		// var xml2js = modules.oXml2js;　//实现xml和js格式之间的相互转换
+		// var result = { xml: {MsgType: 'text'}};                   
+  //       var builder = new xml2js.Builder();
+  //       var xml = builder.buildObject(result); //利用模块xml2js，把json对象转换为一个xml文本
+  //       response.set('Content-Type', 'text/xml'); //设置返回的http header
+  //       response.send(xml);
+  		// response.end("hello");
+});
+
 //测试get请求
 BC.Function.define("findget",
 

@@ -50,4 +50,22 @@ router.get('/:functions', function(request, response) {
 
 });
 
+router.post('/:functions', function(request, response) {
+
+	var data  = request.params;
+
+  	/*
+	调用方式:
+	curl -X GET http://127.0.0.1:80/findget
+	curl -X GET http://127.0.0.1:80/findoneget?objectId=423ffdcb9b
+  	*/
+	var funcName = BC.Function.func(data.functions);
+	if (typeof(funcName) == 'undefined') {
+		response.send('get function '+data.functions+' not exists');
+		return ;
+	}
+	funcName(request,response,modules);
+
+});
+
 module.exports = router;
