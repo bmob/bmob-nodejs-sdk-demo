@@ -5,7 +5,9 @@
 
 // var BC = require('../lib/bmobcloud');
 var BC = require('bmob');
-var func = require('./function');
+//下面这些requrie的顺序必须要在require('bmob')的下面
+require('./function_hello');
+require('./function_test');
 
 var express = require('express');
 var router = express.Router();

@@ -7,7 +7,7 @@ var routesIndex = require('./routes/index');
 var xml2js = require('xml2js');
 var utils = require('./lib/utils');
 var getBody = require('raw-body');
-
+var errorhandler = require('errorhandler')
 
 // 解析微信的 xml 数据
 var xmlBodyParser = function (req, res, next) {
@@ -58,11 +58,12 @@ app.use(xmlBodyParser);
 app.use(require('express-domain-middleware'));
 app.use('/', routesIndex);
 
-app.use(function errorHandler(err, req, res, next) {
+// app.use(function errorHandler(err, req, res, next) {
   
-  res.status(500).send("there is an error in callback function");
+//   res.status(500).send("there is an error in callback function");
 
-});
+// });
+app.use(errorhandler());
 
 //把端口从3000改为80
 var server = app.listen(80, function () {
