@@ -79,6 +79,8 @@ node app.js
 
 ### post方式调用云端代码
 
+使用curl工具调用云端代码
+
 ```
 curl -X POST \
     -H "Content-Type: application/x-www-form-urlencoded" \
@@ -89,6 +91,8 @@ curl -X POST \
 上面表示调用方面名为“findone”的云端代码，传入参数objectId=gHcW111B, 使用的是post方式
 
 ### get方式调用云端代码
+
+在浏览器中输入下面的网址：
 
 ```
 http://127.0.0.1:80/findone?objectId=gHcW111B
